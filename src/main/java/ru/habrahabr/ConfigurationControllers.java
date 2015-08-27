@@ -24,11 +24,20 @@ public class ConfigurationControllers {
         return loadView("fxml/main.fxml");
     }
 
+    /**
+     * Именно благодаря этому методу мы добавили контроллер в контекст спринга,
+     * и заставили его сделать произвести все необходимые инъекции.
+     */
     @Bean
     public MainController getMainController() throws IOException {
         return (MainController) getMainView().getController();
     }
 
+    /**
+     * Самый обыкновенный способ использовать FXML загрузчик.
+     * Как раз-таки на этом этапе будет создан объект-контроллер,
+     * произведены все FXML инъекции и вызван метод инициализации контроллера.
+     */
     protected View loadView(String url) throws IOException {
         InputStream fxmlStream = null;
         try {
@@ -43,21 +52,25 @@ public class ConfigurationControllers {
         }
     }
 
+    /**
+     * Класс - оболочка: контроллер мы обязаны указать в качестве бина,
+     * а view - представление, нам предстоит использовать в точке входа {@link Application}.
+     */
     public class View {
-        private Parent parent;
+        private Parent view;
         private Object controller;
 
-        public View(Parent parent, Object controller) {
-            this.parent = parent;
+        public View(Parent view, Object controller) {
+            this.view = view;
             this.controller = controller;
         }
 
-        public Parent getParent() {
-            return parent;
+        public Parent getView() {
+            return view;
         }
 
-        public void setParent(Parent parent) {
-            this.parent = parent;
+        public void setView(Parent view) {
+            this.view = view;
         }
 
         public Object getController() {
