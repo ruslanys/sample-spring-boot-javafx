@@ -57,6 +57,9 @@ public class MainController {
     public void initialize() {
     }
 
+    /**
+     * На этом этапе уже произведены все возможные инъекции.
+     */
     @SuppressWarnings("unchecked")
     @PostConstruct
     public void init() {
