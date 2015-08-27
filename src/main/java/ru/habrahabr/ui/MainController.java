@@ -28,10 +28,10 @@ public class MainController {
 
     private Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    // Autowired beans
+    // Инъекции Spring
     @Autowired private ContactService contactService;
 
-    // FXML fields
+    // Инъекции JavaFX
     @FXML private TableView<Contact> table;
     @FXML private TextField txtName;
     @FXML private TextField txtPhone;
@@ -43,7 +43,7 @@ public class MainController {
     @FXML
     public void fxmlInit() {
         // Имейте ввиду, что такие методы инициализации UI от JavaFX не пройдут.
-        // Инициализация UI, в данном случае, происходит в методе init() (@PostConstruct);
+        // Инициализация UI, происходит в методе init() (@PostConstruct);
 
         // Хотя поведение элементов, такое как setOnAction, лучше описывать в FXML файле.
         // Например: onAction="#onButtonPress"
