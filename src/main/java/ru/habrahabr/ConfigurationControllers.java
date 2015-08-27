@@ -17,7 +17,7 @@ import java.io.InputStream;
  * @author http://mruslan.com
  */
 @Configuration
-public class ControllersConfig {
+public class ConfigurationControllers {
 
     @Bean(name = "mainView")
     public View getMainView() throws IOException {

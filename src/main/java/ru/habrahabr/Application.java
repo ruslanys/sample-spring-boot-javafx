@@ -15,7 +15,7 @@ public class Application extends AbstractJavaFxApplicationSupport {
     private String windowTitle;
 
     @Autowired
-    private ControllersConfig.View view;
+    private ConfigurationControllers.View view;
 
     @Override
     public void start(Stage stage) throws Exception {
