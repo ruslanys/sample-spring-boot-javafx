@@ -85,6 +85,10 @@ public class MainController {
         table.setItems(data);
     }
 
+    /**
+     * Метод, вызываемый при нажатии на кнопку "Добавить".
+     * Привязан к кнопке в FXML файле представления.
+     */
     @FXML
     public void addContact() {
         Contact contact = new Contact(txtName.getText(), txtPhone.getText(), txtEmail.getText());
