@@ -40,13 +40,21 @@ public class MainController {
     // Variables
     private ObservableList<Contact> data;
 
+    /**
+     * Инициализация контроллера от JavaFX.
+     * Метод вызывается после того как FXML загрузчик произвел инъекции полей.
+     *
+     * Обратите внимание, что имя метода <b>обязательно</b> должно быть "initialize",
+     * в противном случае, метод не вызовется.
+     *
+     * Также на этом этапе еще отсутствуют бины спринга
+     * и для инициализации лучше использовать метод,
+     * описанный аннотацией @PostConstruct,
+     * который вызовется спрингом, после того, как им будут произведены все инъекции.
+     * {@link MainController#init()}
+     */
     @FXML
-    public void fxmlInit() {
-        // Имейте ввиду, что такие методы инициализации UI от JavaFX не пройдут.
-        // Инициализация UI происходит в методе init() (@PostConstruct);
-
-        // Хотя поведение элементов, такое как setOnAction, лучше описывать в FXML файле.
-        // Например: onAction="#onButtonPress"
+    public void initialize() {
     }
 
     @SuppressWarnings("unchecked")
