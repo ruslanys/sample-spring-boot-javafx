@@ -10,3 +10,5 @@ mvn clean package
 ```
 java -jar target/springboot-javafx-*.jar
 ```
+
+![Скриншот](screen.png "Скриншот")
