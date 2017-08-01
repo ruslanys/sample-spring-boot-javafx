@@ -20,8 +20,12 @@ import java.util.List;
 @Transactional
 public class ContactServiceImpl implements ContactService {
 
+    private final ContactRepository repository;
+
     @Autowired
-    private ContactRepository repository;
+    public ContactServiceImpl(ContactRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * Метод добавляет парочку записей в БД после запуска приложения,

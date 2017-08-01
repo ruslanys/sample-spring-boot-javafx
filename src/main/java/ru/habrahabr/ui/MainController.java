@@ -7,9 +7,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import ru.habrahabr.entity.Contact;
 import ru.habrahabr.service.ContactService;
 
@@ -25,8 +24,6 @@ import java.util.List;
  */
 @SuppressWarnings("SpringJavaAutowiringInspection")
 public class MainController {
-
-    private Logger logger = LoggerFactory.getLogger(MainController.class);
 
     // Инъекции Spring
     @Autowired private ContactService contactService;
@@ -55,6 +52,7 @@ public class MainController {
      */
     @FXML
     public void initialize() {
+        // Этап инициализации JavaFX
     }
 
     /**
@@ -91,7 +89,14 @@ public class MainController {
      */
     @FXML
     public void addContact() {
-        Contact contact = new Contact(txtName.getText(), txtPhone.getText(), txtEmail.getText());
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        String email = txtEmail.getText();
+        if (StringUtils.isEmpty(name) || StringUtils.isEmpty(phone) || StringUtils.isEmpty(email)) {
+            return;
+        }
+
+        Contact contact = new Contact(name, phone, email);
         contactService.save(contact);
         data.add(contact);
 
